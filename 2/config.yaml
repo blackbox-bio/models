@@ -1,0 +1,243 @@
+    # Project definitions (do not edit)
+Task: arcteryx500
+scorer: alex
+date: Nov4
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: /home/blackbox/.local/share/bio.blackbox.palmreader/models/1
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+bodyparts:
+- tailtip
+- tailbase
+- anal
+- genital
+- hip
+- sternumtail
+- sternumhead
+- neck
+- snout
+- lcheek
+- rcheek
+# hips and sholders
+- lhip
+- rhip
+- lshoulder
+- rshoulder
+# left paws
+- lankle
+- lhpaw
+- lhpd1b # left hind paw digit 1 base
+- lhpd1t # left hind paw digit 1 tip
+- lhpd2b
+- lhpd2t
+- lhpd3b
+- lhpd3t
+- lhpd4b
+- lhpd4t
+- lhpd5b
+- lhpd5t
+
+- lfpaw
+- lfpd1b
+- lfpd1t
+- lfpd2b
+- lfpd2t
+- lfpd3b
+- lfpd3t
+- lfpd4b
+- lfpd4t
+# right paws
+- rankle
+- rhpaw
+- rhpd1b
+- rhpd1t
+- rhpd2b
+- rhpd2t
+- rhpd3b
+- rhpd3t
+- rhpd4b
+- rhpd4t
+- rhpd5b
+- rhpd5t
+
+- rfpaw
+- rfpd1b
+- rfpd1t
+- rfpd2b
+- rfpd2t
+- rfpd3b
+- rfpd3t
+- rfpd4b
+- rfpd4t
+
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+
+    # Fraction of video to start/stop when extracting frames for labeling/refinement
+start: 0
+stop: 1
+numframes2pick: 20
+
+    # Plotting configuration
+skeleton:
+- - tailtip
+  - tailbase
+- - tailbase
+  - hip
+- - hip
+  - sternumtail
+- - sternumtail
+  - sternumhead
+- - sternumhead
+  - neck
+- - neck
+  - snout
+# anal and genital
+- - hip
+  - anal
+- - hip
+  - genital
+# left hind limb
+- - hip
+  - lhip
+- - lhip
+  - lankle
+- - lankle
+  - lhpaw
+# right hind limb
+- - hip
+  - rhip
+- - rhip
+  - rankle
+- - rankle
+  - rhpaw
+# left hind paw
+- - lhpaw
+  - lhpd1b
+- - lhpd1b
+  - lhpd1t
+- - lhpaw
+  - lhpd2b
+- - lhpd2b
+  - lhpd2t
+- - lhpaw
+  - lhpd3b
+- - lhpd3b
+  - lhpd3t
+- - lhpaw
+  - lhpd4b
+- - lhpd4b
+  - lhpd4t
+- - lhpaw
+  - lhpd5b
+- - lhpd5b
+  - lhpd5t
+# right hind paw
+- - rhpaw
+  - rhpd1b
+- - rhpd1b
+  - rhpd1t
+- - rhpaw
+  - rhpd2b
+- - rhpd2b
+  - rhpd2t
+- - rhpaw
+  - rhpd3b
+- - rhpd3b
+  - rhpd3t
+- - rhpaw
+  - rhpd4b
+- - rhpd4b
+  - rhpd4t
+- - rhpaw
+  - rhpd5b
+- - rhpd5b
+  - rhpd5t
+# left fore limb
+- - sternumhead
+  - lshoulder
+- - lshoulder
+  - lfpaw
+# right fore limb
+- - sternumhead
+  - rshoulder
+- - rshoulder
+  - rfpaw
+# left fore paw
+- - lfpaw
+  - lfpd1b
+- - lfpd1b
+  - lfpd1t
+- - lfpaw
+  - lfpd2b
+- - lfpd2b
+  - lfpd2t
+- - lfpaw
+  - lfpd3b
+- - lfpd3b
+  - lfpd3t
+- - lfpaw
+  - lfpd4b
+- - lfpd4b
+  - lfpd4t
+# right fore paw
+- - rfpaw
+  - rfpd1b
+- - rfpd1b
+  - rfpd1t
+- - rfpaw
+  - rfpd2b
+- - rfpd2b
+  - rfpd2t
+- - rfpaw
+  - rfpd3b
+- - rfpd3b
+  - rfpd3t
+- - rfpaw
+  - rfpd4b
+- - rfpd4b
+  - rfpd4t
+# head
+- - neck
+  - lcheek
+- - neck
+  - rcheek
+- - snout
+  - lcheek
+- - snout
+  - rcheek
+
+skeleton_color: yellow
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 1.00
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
