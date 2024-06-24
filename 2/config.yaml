@@ -6,7 +6,7 @@ multianimalproject: false
 identity:
 
     # Project path (change when moving around)
-project_path: /home/blackbox/.local/share/bio.blackbox.palmreader/models/1
+project_path: /home/blackbox/.local/share/bio.blackbox.palmreader/models/2
 
     # Annotation data set configuration (and individual video cropping parameters)
 video_sets:
